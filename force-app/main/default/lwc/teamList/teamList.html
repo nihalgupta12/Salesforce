@@ -1,0 +1,44 @@
+<template>
+    <lightning-card title="c-team-list">
+    <template if:true={teamList}>
+    <lightning-card>
+        <div class="slds-m-around_medium">
+            <template if:true={teamList}>
+                <lightning-combobox name="team" label="Team :"  value={team}  onchange={changeHandler}
+                    placeholder="Select Team" options={teamList} >
+                </lightning-combobox>
+            </template>
+        </div>
+    </lightning-card>
+    </template>
+    <template if:true={teamMemberList}>
+        <template for:each={teamMemberList} for:item="teamMember">
+            <lightning-card key={teamMember.id}>
+                <div class="row slds-align_absolute-center ">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2">
+                            <span>Name: </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <span>{teamMember.TeamMemberName__c}</span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <span>Team: </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <span>{teamMember.Team__r.TeamName__c}</span>
+                        </div>
+    
+                        <div class="slds-col slds-size_1-of-2">
+                            <span>Skills: </span>
+                        </div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <span>{teamMember.Skills__c}</span>
+                        </div>
+                    </div>
+                </div>
+            </lightning-card>
+        </template>
+    </template>
+</lightning-card>
+    </template>

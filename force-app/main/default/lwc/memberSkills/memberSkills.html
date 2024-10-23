@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="c-member-skills">
+      <div class="slds-m-around_medium">
+        <lightning-input label="Name:" name="memberName" id="memberName" value={memberName} onchange={changeHandler}></lightning-input>
+      </div>
+      <div class="slds-m-around_medium">
+        <template if:false={teamList}>
+            There is no team to show.
+        </template>
+        <template if:true={teamList}>
+            <lightning-combobox name="team" label="Team :"  value={team}  onchange={changeHandler}
+                placeholder="Select Team" options={teamList} >
+            </lightning-combobox>
+        </template>
+      </div>
+      <div class="slds-m-around_medium">
+        <lightning-input type="text"  name="skills" id="skills" label="Skills: "  value={skill} onchange={changeHandler}></lightning-input>
+      </div>
+      <div class="slds-align_absolute-center">
+        <label for="submit"></label>
+        <input type="submit" value="submit" onclick={handleSubmit}>
+       </div>
+    </lightning-card>
+</template>
